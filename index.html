@@ -1,463 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finova POS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FINOVA POS: conoce tus números, entiende tu negocio y toma el control. Sistema de gestión para negocios en Windows.">
+<title>FINOVA POS | Conoce tus números. Toma el control.</title>
 
-
-
-    
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        html{
-    scroll-behavior:smooth;
+<style>
+:root{
+  --green:#16a34a;
+  --green-dark:#0f6b35;
+  --green-deep:#082f1a;
+  --green-soft:#eaf8ef;
+  --ink:#102018;
+  --muted:#5f6d65;
+  --line:#dce8e0;
+  --bg:#f7faf8;
+  --white:#fff;
+  --shadow:0 18px 55px rgba(9,47,27,.10);
+  --radius:24px;
 }
 
-        body{
-            font-family: Arial, sans-serif;
-            background:#f4f6f9;
-        }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.55;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
 
-        header{
-             background:#166534;f
-            color:white;
-            padding:20px 40px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-
-        .logo{
-            font-size:28px;
-            font-weight:bold;
-        }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin-left:20px;
-            font-weight:bold;
-        }
-
-        .hero{
-    min-height:85vh;
-    background:linear-gradient(135deg,#dcfce7,#bbf7d0);
-    color:#14532d;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
+.header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(220,232,224,.8);
+}
+.nav{
+  min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{font-weight:900;letter-spacing:-.04em;font-size:23px}
+.brand span{color:var(--green)}
+.nav-links{display:flex;gap:28px;color:#3f4e46;font-size:14px;font-weight:700}
+.nav-cta{
+  background:var(--green);color:white;padding:11px 18px;border-radius:999px;font-weight:800;
+  box-shadow:0 8px 20px rgba(22,163,74,.20)
 }
 
-        .hero h1{
-    font-size:56px;
-    margin-bottom:20px;
-    color:#14532d;
-    text-shadow:0 2px 4px rgba(255,255,255,0.6);
+.hero{
+  position:relative;overflow:hidden;
+  padding:86px 0 70px;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(22,163,74,.18),transparent 30%),
+    radial-gradient(circle at 15% 20%,rgba(22,163,74,.09),transparent 25%),
+    linear-gradient(180deg,#fff 0%,#f1f9f4 100%);
 }
-
-        .hero p{
-    font-size:22px;
-    max-width:700px;
-    margin-bottom:30px;
-    color:#166534;
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:55px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--green-dark);background:var(--green-soft);
+  padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px;
 }
-
-        /* ===== CARRUSEL PROFESIONAL ===== */
-
-#carrusel{
-    position: relative;
-    overflow: visible;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 30px auto;
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+h1{
+  font-size:clamp(48px,6vw,76px);line-height:.98;letter-spacing:-.065em;
+  max-width:680px;margin-bottom:24px;
 }
-
-.slide{
-    width: 100% !important;
-    height: 420px !important;
-    object-fit: contain !important;
-    background: #ffffff;
-    border-radius: 20px;
-    transition: opacity 0.8s ease-in-out;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+.highlight{color:var(--green)}
+.hero-copy{font-size:20px;color:var(--muted);max-width:650px;margin-bottom:30px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:20px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 22px;border-radius:14px;font-weight:900;border:1px solid transparent;
+  transition:.2s ease;cursor:pointer
 }
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 28px rgba(22,163,74,.23)}
+.btn-secondary{background:#fff;border-color:var(--line);color:var(--ink)}
+.micro{font-size:13px;color:#718078}
 
-/* Botones del carrusel */
-.btn-carrusel{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.45);
-    color: white;
-    border: none;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 10;
+.product-visual{
+  background:#0b2416;border-radius:30px;padding:14px;
+  box-shadow:0 30px 80px rgba(8,47,26,.25);
+  transform:rotate(1deg)
 }
-
-.btn-carrusel:hover{
-    background: rgba(0,0,0,0.7);
+.product-visual img{
+  width:100%;height:460px;object-fit:contain;background:#fff;border-radius:19px;
 }
+.visual-caption{display:flex;justify-content:space-between;color:#d8eee0;padding:13px 8px 2px;font-size:12px;font-weight:700}
 
-.btn-prev{
-    left: 15px;
+.trust-strip{background:var(--green-deep);color:#dcefe3}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+.trust-item{padding:22px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.trust-item:last-child{border:0}
+.trust strong{display:block;color:white;font-size:16px}
+.trust span{font-size:13px;color:#b9d2c1}
+
+.section{padding:100px 0}
+.section-white{background:#fff}
+.section-dark{background:var(--green-deep);color:white}
+.section-kicker{color:var(--green);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+.section-dark .section-kicker{color:#7ee2a1}
+.section-title{
+  font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.045em;
+  max-width:760px;margin-bottom:18px
 }
+.section-intro{color:var(--muted);max-width:690px;font-size:18px}
+.section-dark .section-intro{color:#bcd0c3}
 
-.btn-next{
-    right: 15px;
+.questions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:42px}
+.question{
+  padding:27px;border:1px solid var(--line);border-radius:20px;background:#fff;
+  box-shadow:0 8px 25px rgba(9,47,27,.04)
 }
+.question strong{display:block;font-size:19px;margin-bottom:8px}
+.question p{color:var(--muted);font-size:15px}
+.question .icon{font-size:25px;margin-bottom:13px}
 
-      .btn{
-    background:#15803d;
-    color:white;
-    padding:15px 30px;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    box-shadow:0 6px 15px rgba(21,128,61,0.35);
-    transition:all 0.3s ease;
+.transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:42px}
+.before,.after{padding:34px;border-radius:26px}
+.before{background:#f5f6f5;border:1px solid #e4e8e5}
+.after{background:linear-gradient(145deg,#0c4a28,#0f6b35);color:white;box-shadow:var(--shadow)}
+.transform-title{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;margin-bottom:22px}
+.transform-list{list-style:none;display:grid;gap:15px}
+.transform-list li{display:flex;gap:12px;align-items:flex-start}
+.transform-list li:before{content:"✓";font-weight:900;color:var(--green);flex:0 0 auto}
+.after .transform-list li:before{color:#8cf0ae}
+
+.demo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+.demo-image{
+  background:#0b2416;padding:12px;border-radius:25px;box-shadow:var(--shadow)
 }
-.btn:hover{
-    background:#166534;
-    transform:translateY(-2px);
+.demo-image img{height:440px;width:100%;object-fit:contain;background:#fff;border-radius:16px}
+.demo-points{display:grid;gap:18px;margin-top:28px}
+.demo-point{display:flex;gap:14px}
+.demo-point b{display:block;margin-bottom:3px}
+.demo-point p{color:var(--muted);font-size:14px}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+.feature{
+  background:#fff;border:1px solid var(--line);padding:28px;border-radius:22px;
+  transition:.2s ease
 }
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.feature-icon{font-size:28px;margin-bottom:15px}
+.feature h3{font-size:19px;margin-bottom:7px}
+.feature p{color:var(--muted);font-size:14px}
 
-        .features{
-            padding:80px 40px;
-        }
-
-        .features h2{
-            text-align:center;
-            font-size:40px;
-            margin-bottom:50px;
-            color:#0f172a;
-        }
-
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
-
-       .card{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    border:1px solid #dcfce7;
-    box-shadow:0 8px 25px rgba(22,101,52,0.08);
+.quote{
+  margin-top:60px;padding:40px;border-radius:28px;
+  background:linear-gradient(135deg,#eaf8ef,#fff);
+  border:1px solid #cce8d5
 }
+.quote p{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.045em;line-height:1.08;max-width:900px}
+.quote span{display:block;margin-top:15px;color:var(--muted);font-size:14px}
 
-        .card h3{
-            color:#166534;
-            margin-bottom:15px;
-        }
+.emotion{text-align:center}
+.emotion .section-title{margin-left:auto;margin-right:auto}
+.emotion .section-intro{margin:auto}
+.emotion-line{font-size:clamp(28px,4vw,54px);font-weight:900;letter-spacing:-.05em;line-height:1.05;margin-top:42px}
+.emotion-line span{color:#7ee2a1}
 
-        footer{
-            background:#14532d;
-            color:white;
-            text-align:center;
-            padding:25px;
-        }
-
-            /* ===== DISEÑO PARA CELULAR ===== */
-@media (max-width: 768px){
-
-    /* Encabezado */
-    header{
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-        text-align: center;
-    }
-
-    /* Menú */
-    nav{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    nav a{
-        margin-left: 0;
-        font-size: 15px;
-    }
-
-    /* Hero */
-    .hero{
-        padding: 30px 15px;
-        min-height: auto;
-    }
-
-    .hero h1{
-        font-size: 34px;
-        line-height: 1.2;
-        text-align: center;
-    }
-
-    .hero p{
-        font-size: 17px;
-        text-align: center;
-        padding: 0 5px;
-    }
-
-    /* Botón principal */
-    .btn{
-        width: 100%;
-        max-width: 320px;
-        text-align: center;
-    }
-
-    /* Carrusel */
-    #carrusel{
-        width: 100%;
-    }
-
-    .slide{
-        height: 240px !important;
-    }
-
-    /* Botones del carrusel */
-    .btn-carrusel{
-        width: 42px;
-        height: 42px;
-        font-size: 20px;
-    }
-
-    /* Tarjetas */
-    .features{
-        padding: 50px 20px;
-    }
-
-    .features h2{
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .grid{
-        grid-template-columns: 1fr;
-    }
-
-    .card{
-        text-align: center;
-    }
-
-    /* Footer */
-    footer{
-        padding: 20px;
-        text-align: center;
-    }
+.price-wrap{
+  max-width:760px;margin:45px auto 0;text-align:center;
+  background:#fff;color:var(--ink);border-radius:30px;padding:42px;
+  box-shadow:0 25px 80px rgba(0,0,0,.18)
 }
-    </style>
+.price-label{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--muted)}
+.price{font-size:64px;line-height:1;font-weight:950;letter-spacing:-.06em;margin:10px 0}
+.price-sub{color:var(--muted);margin-bottom:25px}
+.price-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin:25px 0}
+.price-list div{padding:10px 12px;background:#f6faf7;border-radius:10px;font-size:14px}
+.price-list div:before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
 
+.faq{display:grid;gap:12px;margin-top:40px}
+details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px 21px}
+summary{cursor:pointer;font-weight:850}
+details p{color:var(--muted);padding-top:12px;font-size:14px}
 
+.final-cta{text-align:center}
+.final-cta .section-title{margin-left:auto;margin-right:auto}
+.final-actions{justify-content:center;margin-top:30px}
+
+.footer{padding:35px 0;background:#061f11;color:#b9d2c1;text-align:center;font-size:13px}
+.footer strong{color:white}
+
+@media(max-width:850px){
+  .nav-links{display:none}
+  .hero{padding:55px 0}
+  .hero-grid,.demo-grid,.transform-grid{grid-template-columns:1fr}
+  .hero-grid{gap:38px}
+  .product-visual{transform:none}
+  .product-visual img{height:330px}
+  .trust{grid-template-columns:1fr}
+  .trust-item{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .questions{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .demo-image img{height:330px}
+}
+@media(max-width:560px){
+  .section{padding:72px 0}
+  h1{font-size:46px}
+  .hero-copy{font-size:17px}
+  .hero-actions .btn{width:100%}
+  .features{grid-template-columns:1fr}
+  .price-wrap{padding:28px 20px}
+  .price{font-size:52px}
+  .price-list{grid-template-columns:1fr}
+  .nav-cta{padding:10px 13px;font-size:13px}
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-      <div class="logo">
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#inicio">FINOVA<span> POS</span></a>
+    <nav class="nav-links">
+      <a href="#problema">Tu negocio</a>
+      <a href="#transformacion">Transformación</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#precio">Precio</a>
+    </nav>
+    <a class="nav-cta" href="#precio">Quiero FINOVA</a>
+  </div>
+</header>
 
-    <div style="font-size:28px;
-                font-weight:bold;
-                line-height:1;
-                color:white;">
-        FINOVA POS
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Control para tu negocio</div>
+      <h1>Si no conoces tus números, <span class="highlight">no conoces tu negocio.</span></h1>
+      <p class="hero-copy">
+        FINOVA te ayuda a organizar la información de tus ventas, productos, inventario y clientes para que puedas entender mejor lo que pasa en tu negocio y tomar decisiones con mayor seguridad.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#precio">Quiero tener el control →</a>
+        <a class="btn btn-secondary" href="#demo">Ver FINOVA en acción</a>
+      </div>
+      <div class="micro">Windows · Pago único · Licencia vitalicia</div>
     </div>
 
-    <div style="font-size:12px;
-                color:white;
-                margin-top:6px;
-                letter-spacing:0.5px;
-                opacity:0.9;">
-        Desarrollado por Acontar
+    <div class="product-visual">
+      <img src="interfaz1.jpg" alt="Interfaz de FINOVA POS">
+      <div class="visual-caption">
+        <span>FINOVA POS</span>
+        <span>Información para decidir.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust">
+    <div class="trust-item"><strong>Más claridad</strong><span>Información organizada para entender tu operación.</span></div>
+    <div class="trust-item"><strong>Más control</strong><span>Ventas, productos, inventario y clientes en un solo lugar.</span></div>
+    <div class="trust-item"><strong>Más tranquilidad</strong><span>Decisiones con información, no solamente con intuición.</span></div>
+  </div>
+</section>
+
+<section class="section section-white" id="problema">
+  <div class="container">
+    <div class="section-kicker">Primero, tu realidad</div>
+    <h2 class="section-title">¿Realmente sabes qué está pasando en tu negocio?</h2>
+    <p class="section-intro">No se trata de trabajar más. Se trata de tener la información correcta cuando necesitas tomar una decisión.</p>
+
+    <div class="questions">
+      <div class="question"><div class="icon">💰</div><strong>¿Cuánto vendiste hoy?</strong><p>¿Puedes responderlo sin buscar en varios lugares o hacer cuentas?</p></div>
+      <div class="question"><div class="icon">📦</div><strong>¿Qué tienes disponible?</strong><p>¿Sabes qué productos están por agotarse antes de que sea demasiado tarde?</p></div>
+      <div class="question"><div class="icon">📈</div><strong>¿Qué se está vendiendo más?</strong><p>Conocer tus movimientos te permite entender mejor qué está pasando.</p></div>
+      <div class="question"><div class="icon">🧠</div><strong>¿En qué basas tus decisiones?</strong><p>La intuición ayuda. La información te da una base más segura para decidir.</p></div>
     </div>
 
-</div>
+    <div class="quote">
+      <p>Si para saber cómo está tu negocio tienes que adivinar, buscar o hacer cuentas… necesitas más claridad.</p>
+      <span>FINOVA nace para ayudarte a convertir la información de tu operación en control.</span>
+    </div>
+  </div>
+</section>
 
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#funciones">Funciones</a>
-            <a href="#">Precios</a>
-            <a href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20informaci%C3%B3n%20sobre%20Finova%20POS" target="_blank">Contacto</a>
-        </nav>
-    </header>
+<section class="section" id="transformacion">
+  <div class="container">
+    <div class="section-kicker">La transformación</div>
+    <h2 class="section-title">Tu negocio cambia cuando empiezas a verlo con claridad.</h2>
+    <p class="section-intro">FINOVA no reemplaza tu experiencia. La complementa con información organizada para que puedas administrar con mayor seguridad.</p>
 
-    <section class="hero">
+    <div class="transform-grid">
+      <div class="before">
+        <div class="transform-title">Cuando no tienes control</div>
+        <ul class="transform-list">
+          <li>Dudas sobre lo que realmente está pasando.</li>
+          <li>Tiempo buscando información.</li>
+          <li>Procesos manuales y repetitivos.</li>
+          <li>Decisiones tomadas con información incompleta.</li>
+        </ul>
+      </div>
+      <div class="after">
+        <div class="transform-title">Cuando tienes información</div>
+        <ul class="transform-list">
+          <li>Más claridad sobre tu operación.</li>
+          <li>Información organizada en un solo lugar.</li>
+          <li>Procesos más ágiles y ordenados.</li>
+          <li>Mayor seguridad para decidir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- CARRUSEL MULTIMEDIA -->
-<!-- CARRUSEL MULTIMEDIA -->
-<div id="carrusel" style="position:relative; width:100%; max-width:1100px; margin:0 auto 30px auto;">
+<section class="section section-white" id="demo">
+  <div class="container demo-grid">
+    <div class="demo-image">
+      <img src="reportes.jpg" alt="Reportes de FINOVA POS">
+    </div>
+    <div>
+      <div class="section-kicker">Míralo en acción</div>
+      <h2 class="section-title">No te pedimos que nos creas. Mira cómo funciona.</h2>
+      <p class="section-intro">La mejor forma de entender FINOVA es verlo trabajando con la información de un negocio.</p>
 
-    <img class="slide" src="config.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:block;">
+      <div class="demo-points">
+        <div class="demo-point"><div>📊</div><div><b>Visualiza información</b><p>Consulta datos de tu operación de forma más organizada.</p></div></div>
+        <div class="demo-point"><div>⚡</div><div><b>Reduce trabajo innecesario</b><p>Centraliza procesos para no depender de información dispersa.</p></div></div>
+        <div class="demo-point"><div>🎯</div><div><b>Decide con mayor seguridad</b><p>Ten una mejor base para analizar lo que ocurre en tu negocio.</p></div></div>
+      </div>
 
-    <img class="slide" src="ordenc.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+      <a class="btn btn-primary" style="margin-top:28px" href="#funciones">Conocer las funciones →</a>
+    </div>
+  </div>
+</section>
 
-    <img class="slide" src="historial.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+<section class="section" id="funciones">
+  <div class="container">
+    <div class="section-kicker">El sistema</div>
+    <h2 class="section-title">Todo lo que necesitas para empezar a tener el control.</h2>
+    <p class="section-intro">Funciones pensadas para organizar las operaciones que forman parte del día a día de tu negocio.</p>
 
-    <img class="slide" src="reportes.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+    <div class="features">
+      <article class="feature"><div class="feature-icon">🧾</div><h3>Ventas</h3><p>Registra tus operaciones de forma rápida y organizada.</p></article>
+      <article class="feature"><div class="feature-icon">📦</div><h3>Inventario</h3><p>Ten mayor control sobre tus productos y existencias.</p></article>
+      <article class="feature"><div class="feature-icon">🏷️</div><h3>Productos</h3><p>Organiza la información de los productos que manejas.</p></article>
+      <article class="feature"><div class="feature-icon">👥</div><h3>Clientes</h3><p>Mantén centralizada la información de tus clientes.</p></article>
+      <article class="feature"><div class="feature-icon">📊</div><h3>Reportes</h3><p>Consulta información que te ayude a entender mejor tu operación.</p></article>
+      <article class="feature"><div class="feature-icon">🔐</div><h3>Usuarios y permisos</h3><p>Administra el acceso al sistema según las necesidades de tu negocio.</p></article>
+    </div>
+  </div>
+</section>
 
-    <img class="slide" src="cierre.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+<section class="section section-dark emotion">
+  <div class="container">
+    <div class="section-kicker">Lo que realmente estás comprando</div>
+    <h2 class="section-title">No estás comprando solamente un programa.</h2>
+    <p class="section-intro">Estás construyendo una forma más clara y ordenada de administrar tu negocio.</p>
+    <div class="emotion-line">Más claridad.<br><span>Más control.</span><br>Más tranquilidad.</div>
+  </div>
+</section>
 
-    <img class="slide" src="cierre2.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+<section class="section section-white" id="precio">
+  <div class="container final-cta">
+    <div class="section-kicker">Da el siguiente paso</div>
+    <h2 class="section-title">Tu negocio ya tiene suficiente incertidumbre. Empieza a conocerlo mejor.</h2>
+    <p class="section-intro" style="margin:auto">FINOVA es una herramienta para Windows pensada para ayudarte a organizar la información de tu negocio y tomar decisiones con mayor seguridad.</p>
 
-    <img class="slide" src="permisos.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+    <div class="price-wrap">
+      <div class="price-label">FINOVA POS</div>
+      <div class="price">$101.000</div>
+      <div class="price-sub">COP · Pago único · Licencia vitalicia</div>
 
-    <img class="slide" src="config2.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+      <div class="price-list">
+        <div>Sistema FINOVA POS para Windows</div>
+        <div>Gestión de ventas</div>
+        <div>Control de productos e inventario</div>
+        <div>Gestión de clientes</div>
+        <div>Reportes de operación</div>
+        <div>Usuarios y permisos</div>
+      </div>
 
-    <img class="slide" src="interfaz1.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+      <div class="hero-actions final-actions">
+        <a class="btn btn-primary" href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20comprar%20Finova%20POS" target="_blank" rel="noopener">Quiero comprar FINOVA →</a>
+        <a class="btn btn-secondary" href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20ver%20una%20demostraci%C3%B3n%20de%20Finova%20POS" target="_blank" rel="noopener">Quiero una demostración</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <img class="slide" src="interfaz2.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+<section class="section">
+  <div class="container">
+    <div class="section-kicker">Preguntas frecuentes</div>
+    <h2 class="section-title">Antes de tomar una decisión, queremos que tengas claridad.</h2>
 
-    <img class="slide" src="interfaz3.jpg" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;">
+    <div class="faq">
+      <details><summary>¿FINOVA es un software o una plantilla?</summary><p>FINOVA POS es un software para Windows. No es una plantilla.</p></details>
+      <details><summary>¿La licencia es mensual?</summary><p>La propuesta actual es de pago único con licencia vitalicia.</p></details>
+      <details><summary>¿Para qué tipo de negocio está pensado?</summary><p>Está orientado a negocios que necesitan organizar y controlar ventas, productos, inventario, clientes y otra información de su operación.</p></details>
+      <details><summary>¿Puedo conocer el sistema antes de comprar?</summary><p>Sí. Puedes solicitar una demostración para conocer cómo funciona y resolver tus dudas antes de tomar una decisión.</p></details>
+      <details><summary>¿Cómo recibo o descargo FINOVA después de comprar?</summary><p>La descarga debe realizarse desde el enlace que se entregue al cliente después de confirmar la compra. Evitamos presentar el instalador como una descarga gratuita antes de la compra.</p></details>
+    </div>
+  </div>
+</section>
 
-    <video class="slide" style="width:100%; height:420px; object-fit:contain; background:white; border-radius:20px; display:none;" muted autoplay>
-        <source src="video1.mp4" type="video/mp4">
-    </video>
+<section class="section section-dark final-cta">
+  <div class="container">
+    <div class="section-kicker">FINOVA POS</div>
+    <h2 class="section-title">Conoce tus números. Entiende tu negocio. Toma el control.</h2>
+    <p class="section-intro" style="margin:auto">La información correcta puede darte algo que todo dueño de negocio necesita: mayor claridad para decidir.</p>
+    <div class="hero-actions final-actions">
+      <a class="btn btn-primary" href="#precio">Quiero tener el control →</a>
+      <a class="btn btn-secondary" style="background:transparent;color:white;border-color:rgba(255,255,255,.25)" href="https://wa.me/573126509155?text=Hola%20Acontar,%20tengo%20una%20pregunta%20sobre%20Finova%20POS" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-    <button class="btn-carrusel btn-prev" onclick="cambiarManual(-1)">‹</button>
-    <button class="btn-carrusel btn-next" onclick="cambiarManual(1)">›</button>
+</main>
 
-</div>
-        <h1>Controla tu negocio desde un solo lugar</h1>
-
-        <p>
-            Finova POS es un sistema de punto de venta moderno para tiendas,
-            supermercados, papelerías y negocios que necesitan control de ventas,
-            inventario y reportes en tiempo real.
-        </p>
-
-        <a href="https://www.dropbox.com/scl/fi/2z0i80849ai3d271z87s2/Finova-POS-2.0.zip?rlkey=v0a1vu3qagc6us2ulszwssvq5&st=q17kla4s&dl=1"
-   class="btn"
-   download>
-   Descargar Finova POS 2.0
-</a>
-    </section>
-
-    <section class="features" id="funciones">
-        <h2>Funciones Principales</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>Ventas Rápidas</h3>
-                <p>Factura productos en segundos con lector de código de barras.</p>
-            </div>
-
-            <div class="card">
-                <h3>Inventario</h3>
-                <p>Controla entradas, salidas y stock bajo automáticamente.</p>
-            </div>
-
-            <div class="card">
-                <h3>Clientes</h3>
-                <p>Guarda historial de compras y administra tus clientes.</p>
-            </div>
-
-            <div class="card">
-                <h3>Reportes</h3>
-                <p>Obtén reportes diarios, mensuales y por producto vendido.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Finova POS - Todos los derechos reservados</p>
-    </footer>
-
-   <script>
-
-    const slides = document.querySelectorAll('.slide');
-
-    let indice = 0;
-    let temporizador;
-
-    function mostrarSlide(nuevoIndice){
-
-        // Detener temporizador anterior
-        clearTimeout(temporizador);
-
-        // Ocultar todos
-        slides.forEach(slide => {
-
-            slide.style.display = 'none';
-
-            if(slide.tagName === 'VIDEO'){
-                slide.pause();
-                slide.currentTime = 0;
-            }
-        });
-
-        // Mostrar actual
-        const actual = slides[nuevoIndice];
-        actual.style.display = 'block';
-
-        // SI ES VIDEO
-        if(actual.tagName === 'VIDEO'){
-
-            actual.play();
-
-            // Esperar 26 segundos
-            temporizador = setTimeout(siguienteSlide, 26000);
-
-        }else{
-
-            // Imágenes: 4 segundos
-            temporizador = setTimeout(siguienteSlide, 4000);
-        }
-    }
-
-    function siguienteSlide(){
-
-        indice++;
-
-        if(indice >= slides.length){
-            indice = 0;
-        }
-
-        mostrarSlide(indice);
-    }
-
-    function cambiarManual(direccion){
-
-    // Detener el temporizador actual
-    clearTimeout(temporizador);
-
-    indice += direccion;
-
-    // Si se pasa del último
-    if(indice >= slides.length){
-        indice = 0;
-    }
-
-    // Si se va antes del primero
-    if(indice < 0){
-        indice = slides.length - 1;
-    }
-
-    mostrarSlide(indice);
-}
-
-    // Iniciar
-    mostrarSlide(indice);
-
-</script>
+<footer class="footer">
+  <div class="container"><strong>FINOVA POS</strong> · Desarrollado por Acontar · © 2026</div>
+</footer>
 
 </body>
 </html>
