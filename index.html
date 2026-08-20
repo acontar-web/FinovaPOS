@@ -133,10 +133,22 @@ h1{
 .after .transform-list li:before{color:#8cf0ae}
 
 .demo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
-.demo-image{
-  background:#0b2416;padding:12px;border-radius:25px;box-shadow:var(--shadow)
+.demo-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #071c12;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
-.demo-image img{height:440px;width:100%;object-fit:contain;background:#fff;border-radius:16px}
+
+.demo-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #071c12;
+}
 .demo-points{display:grid;gap:18px;margin-top:28px}
 .demo-point{display:flex;gap:14px}
 .demo-point b{display:block;margin-bottom:3px}
@@ -318,21 +330,72 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
 
 <section class="section section-white" id="demo">
   <div class="container demo-grid">
-    <div class="demo-image">
-      <img src="reportes.jpg" alt="Reportes de FINOVA POS">
+
+    <div class="demo-video">
+      <video 
+        controls
+        preload="metadata"
+        playsinline
+        poster="interfaz1.jpg">
+        <source src="demo-finova.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
     </div>
+
     <div>
       <div class="section-kicker">Míralo en acción</div>
-      <h2 class="section-title">No te pedimos que nos creas. Mira cómo funciona.</h2>
-      <p class="section-intro">La mejor forma de entender FINOVA es verlo trabajando con la información de un negocio.</p>
+
+      <h2 class="section-title">
+        No te pedimos que nos creas. Mira cómo funciona.
+      </h2>
+
+      <p class="section-intro">
+        La mejor forma de entender FINOVA es verlo en acción. 
+        Observa cómo puedes gestionar la información de tu negocio 
+        desde un solo sistema.
+      </p>
 
       <div class="demo-points">
-        <div class="demo-point"><div>📊</div><div><b>Visualiza información</b><p>Consulta datos de tu operación de forma más organizada.</p></div></div>
-        <div class="demo-point"><div>⚡</div><div><b>Reduce trabajo innecesario</b><p>Centraliza procesos para no depender de información dispersa.</p></div></div>
-        <div class="demo-point"><div>🎯</div><div><b>Decide con mayor seguridad</b><p>Ten una mejor base para analizar lo que ocurre en tu negocio.</p></div></div>
+
+        <div class="demo-point">
+          <div>📊</div>
+          <div>
+            <b>Visualiza información</b>
+            <p>
+              Consulta los datos de tu operación de forma más organizada.
+            </p>
+          </div>
+        </div>
+
+        <div class="demo-point">
+          <div>⚡</div>
+          <div>
+            <b>Reduce trabajo innecesario</b>
+            <p>
+              Centraliza procesos para no depender de información dispersa.
+            </p>
+          </div>
+        </div>
+
+        <div class="demo-point">
+          <div>🎯</div>
+          <div>
+            <b>Decide con mayor seguridad</b>
+            <p>
+              Ten una mejor base para analizar lo que ocurre en tu negocio.
+            </p>
+          </div>
+        </div>
+
       </div>
 
-      <a class="btn btn-primary" style="margin-top:28px" href="#funciones">Conocer las funciones →</a>
+      <a 
+        class="btn btn-primary" 
+        style="margin-top:28px" 
+        href="#funciones">
+        Conocer las funciones →
+      </a>
+
     </div>
   </div>
 </section>
@@ -369,10 +432,13 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
     <h2 class="section-title">Tu negocio ya tiene suficiente incertidumbre. Empieza a conocerlo mejor.</h2>
     <p class="section-intro" style="margin:auto">FINOVA es una herramienta para Windows pensada para ayudarte a organizar la información de tu negocio y tomar decisiones con mayor seguridad.</p>
 
-    <div class="price-wrap">
-      <div class="price-label">FINOVA POS</div>
-      <div class="price">$101.000</div>
-      <div class="price-sub">COP · Pago único · Licencia vitalicia</div>
+   <div class="price-wrap">
+  <div class="price-label">FINOVA POS</div>
+  <div class="price">US$47,99</div>
+  <div class="price-sub">Pago único · Licencia vitalicia</div>
+  <div class="price-note">Sin mensualidades ni suscripciones.</div>
+  <div class="price-note">El valor final en tu moneda se mostrará al realizar el pago.</div>
+   </div>
 
       <div class="price-list">
         <div>Sistema FINOVA POS para Windows</div>
@@ -383,10 +449,23 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
         <div>Usuarios y permisos</div>
       </div>
 
-      <div class="hero-actions final-actions">
-        <a class="btn btn-primary" href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20comprar%20Finova%20POS" target="_blank" rel="noopener">Quiero comprar FINOVA →</a>
-        <a class="btn btn-secondary" href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20ver%20una%20demostraci%C3%B3n%20de%20Finova%20POS" target="_blank" rel="noopener">Quiero una demostración</a>
-      </div>
+     <div class="hero-actions final-actions">
+    <a 
+        class="btn btn-primary" 
+        href="https://pay.hotmart.com/R102469891P" 
+        target="_blank" 
+        rel="noopener">
+        Quiero comprar FINOVA →
+    </a>
+
+    <a 
+        class="btn btn-secondary" 
+        href="https://wa.me/573126509155?text=Hola%20Acontar,%20quiero%20ver%20una%20demostraci%C3%B3n%20de%20Finova%20POS" 
+        target="_blank" 
+        rel="noopener">
+        Quiero una demostración
+    </a>
+</div>
     </div>
   </div>
 </section>
@@ -398,10 +477,11 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
 
     <div class="faq">
       <details><summary>¿FINOVA es un software o una plantilla?</summary><p>FINOVA POS es un software para Windows. No es una plantilla.</p></details>
-      <details><summary>¿La licencia es mensual?</summary><p>La propuesta actual es de pago único con licencia vitalicia.</p></details>
-      <details><summary>¿Para qué tipo de negocio está pensado?</summary><p>Está orientado a negocios que necesitan organizar y controlar ventas, productos, inventario, clientes y otra información de su operación.</p></details>
+      <details><summary>¿La licencia es mensual?</summary><p><strong>No.</strong> FINOVA funciona con una <strong>licencia de pago único y de por vida</strong>. No tienes que pagar mensualidades ni realizar suscripciones periódicas para continuar utilizando el sistema.</p><p>Realizas una sola inversión y recibes tu <strong>código de activación</strong> para el equipo correspondiente, junto con la información necesaria para descargar e instalar FINOVA.</p></details>
+      <details><summary>¿Para qué tipo de negocio está pensado FINOVA?</summary><p>FINOVA está pensado para pequeños y medianos negocios que necesitan tener un mayor control sobre sus ventas, productos, inventario, clientes, proveedores, compras, gastos y la información de su operación diaria.</p><p>Es especialmente útil si actualmente llevas estos procesos de forma manual, utilizas diferentes herramientas para organizar la información o sientes que te cuesta saber con claridad <strong>qué vendes, qué tienes disponible, qué has comprado, cuánto has gastado y cómo está funcionando tu negocio</strong>.</p><p>Con FINOVA puedes centralizar esta información en un solo sistema y consultar tus datos de manera más organizada, ayudándote a <strong>ahorrar tiempo, reducir errores y tomar decisiones con mayor seguridad</strong>.</p><p>Puede adaptarse a diferentes tipos de negocios, como <strong>tiendas, minimercados, papelerías, ferreterías, negocios de productos, comercios y otros establecimientos</strong> que necesiten mejorar el control de su operación.</p><p><strong>¿No estás seguro de si FINOVA se adapta a tu negocio?</strong> Puedes contarnos qué tipo de negocio tienes y cómo llevas actualmente tus procesos, y te ayudaremos a identificar si el sistema es adecuado para ti.</p></details>
       <details><summary>¿Puedo conocer el sistema antes de comprar?</summary><p>Sí. Puedes solicitar una demostración para conocer cómo funciona y resolver tus dudas antes de tomar una decisión.</p></details>
-      <details><summary>¿Cómo recibo o descargo FINOVA después de comprar?</summary><p>La descarga debe realizarse desde el enlace que se entregue al cliente después de confirmar la compra. Evitamos presentar el instalador como una descarga gratuita antes de la compra.</p></details>
+     <details><summary>¿Cómo recibo o descargo FINOVA después de comprar?</summary><p>Una vez confirmada tu compra, recibirás en el correo electrónico registrado toda la información necesaria para descargar e instalar FINOVA.</p><p>En el mismo correo encontrarás tu <strong>código de activación</strong>, el cual es único y funciona para un solo equipo, además de un <strong>video explicativo paso a paso</strong> para acompañarte durante el proceso de instalación.</p><p>De esta manera, tendrás todo lo necesario para comenzar a utilizar FINOVA de forma sencilla y segura.</p></details>
+
     </div>
   </div>
 </section>
