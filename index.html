@@ -133,10 +133,92 @@ h1{
 .after .transform-list li:before{color:#8cf0ae}
 
 .demo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
-.demo-image{
-  background:#0b2416;padding:12px;border-radius:25px;box-shadow:var(--shadow)
+.demo-header {
+text-align: center;
+max-width: 850px;
+margin: 0 auto 40px;
 }
-.demo-image img{height:440px;width:100%;object-fit:contain;background:#fff;border-radius:16px}
+
+.demo-header .section-title {
+margin-left: auto;
+margin-right: auto;
+}
+
+.demo-video {
+width: 100%;
+max-width: 900px;
+margin: 0 auto;
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 20px 50px rgba(0,0,0,.12);
+background: #000;
+}
+
+.demo-video video {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.demo-content {
+max-width: 900px;
+margin: 42px auto 0;
+}
+
+.demo-content .section-intro {
+text-align: center;
+margin-bottom: 32px;
+}
+
+.demo-points {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+
+.demo-point {
+display: flex;
+gap: 14px;
+align-items: flex-start;
+}
+
+.demo-point > div:first-child {
+font-size: 26px;
+line-height: 1;
+}
+
+.demo-point b {
+display: block;
+margin-bottom: 7px;
+}
+
+.demo-point p {
+margin: 0;
+line-height: 1.6;
+}
+
+.demo-content .btn {
+display: block;
+width: fit-content;
+margin-left: auto;
+margin-right: auto;
+}
+
+@media (max-width: 768px) {
+.demo-video {
+border-radius: 12px;
+}
+
+.demo-points {
+grid-template-columns: 1fr;
+gap: 22px;
+}
+
+.demo-content {
+margin-top: 32px;
+}
+}
+
 .demo-points{display:grid;gap:18px;margin-top:28px}
 .demo-point{display:flex;gap:14px}
 .demo-point b{display:block;margin-bottom:3px}
@@ -317,23 +399,63 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
 </section>
 
 <section class="section section-white" id="demo">
-  <div class="container demo-grid">
-    <div class="demo-image">
-      <img src="reportes.jpg" alt="Reportes de FINOVA POS">
-    </div>
-    <div>
-      <div class="section-kicker">Míralo en acción</div>
-      <h2 class="section-title">No te pedimos que nos creas. Mira cómo funciona.</h2>
-      <p class="section-intro">La mejor forma de entender FINOVA es verlo trabajando con la información de un negocio.</p>
+  <div class="container">
 
-      <div class="demo-points">
-        <div class="demo-point"><div>📊</div><div><b>Visualiza información</b><p>Consulta datos de tu operación de forma más organizada.</p></div></div>
-        <div class="demo-point"><div>⚡</div><div><b>Reduce trabajo innecesario</b><p>Centraliza procesos para no depender de información dispersa.</p></div></div>
-        <div class="demo-point"><div>🎯</div><div><b>Decide con mayor seguridad</b><p>Ten una mejor base para analizar lo que ocurre en tu negocio.</p></div></div>
+```
+<!-- TÍTULO -->
+<div class="demo-header">
+  <div class="section-kicker">Míralo en acción</div>
+  <h2 class="section-title">No te pedimos que nos creas. Mira cómo funciona.</h2>
+</div>
+
+<!-- VIDEO -->
+<div class="demo-video">
+  <video controls playsinline preload="metadata">
+    <source src="demo-finova.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
+</div>
+
+<!-- TEXTO -->
+<div class="demo-content">
+  <p class="section-intro">
+    La mejor forma de entender FINOVA es verlo trabajando con la información de un negocio.
+  </p>
+
+  <div class="demo-points">
+
+    <div class="demo-point">
+      <div>📊</div>
+      <div>
+        <b>Visualiza información</b>
+        <p>Consulta los datos de tu negocio de forma clara y organizada.</p>
       </div>
-
-      <a class="btn btn-primary" style="margin-top:28px" href="#funciones">Conocer las funciones →</a>
     </div>
+
+    <div class="demo-point">
+      <div>⚡</div>
+      <div>
+        <b>Reduce trabajo innecesario</b>
+        <p>Simplifica tareas del día a día y aprovecha mejor tu tiempo.</p>
+      </div>
+    </div>
+
+    <div class="demo-point">
+      <div>🎯</div>
+      <div>
+        <b>Decide con mayor seguridad</b>
+        <p>Cuenta con información que te ayude a entender mejor lo que ocurre en tu negocio.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <a class="btn btn-primary" style="margin-top:28px" href="#funciones">
+    Conocer las funciones →
+  </a>
+</div>
+```
+
   </div>
 </section>
 
