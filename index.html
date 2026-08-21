@@ -244,13 +244,19 @@ margin-top: 32px;
 
 .emotion{text-align:center}
 .emotion .section-title{margin-left:auto;margin-right:auto}
-.emotion .section-intro {
+.emotion-intro {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
   white-space: nowrap;
 }
 
 @media (max-width: 768px) {
-  .emotion .section-intro {
+  .emotion-intro {
     white-space: normal;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 }
 .emotion-line{font-size:clamp(28px,4vw,54px);font-weight:900;letter-spacing:-.05em;line-height:1.05;margin-top:42px}
@@ -380,26 +386,26 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
 <section class="section" id="transformacion">
   <div class="container">
     <div class="section-kicker">La transformación</div>
-    <h2 class="section-title">Tu negocio cambia cuando empiezas a verlo con claridad.</h2>
-    <p class="section-intro">FINOVA no reemplaza tu experiencia. La complementa con información organizada para que puedas administrar con mayor seguridad.</p>
+    <h2 class="section-title">Tu negocio cambia cuando cambia la forma en que lo llevas.</h2>
+    <p class="section-intro">FINOVA no reemplaza tu experiencia. Te da una forma más sencilla de aprovecharla y dedicar tu tiempo a lo que realmente importa. </p></p>
 
     <div class="transform-grid">
       <div class="before">
-        <div class="transform-title">Cuando no tienes control</div>
+        <div class="transform-title">Cuando todo depende de ti</div>
         <ul class="transform-list">
-          <li>Dudas sobre lo que realmente está pasando.</li>
-          <li>Tiempo buscando información.</li>
+          <li>Dudas que te obligan a revisar una y otra vez.</li>
+          <li>Tiempo que se va en tareas que podrían ser más sencillas.</li>
           <li>Procesos manuales y repetitivos.</li>
-          <li>Decisiones tomadas con información incompleta.</li>
+          <li>Información repartida en diferentes lugares.</li>
         </ul>
       </div>
       <div class="after">
-        <div class="transform-title">Cuando tienes información</div>
+        <div class="transform-title">Cuando tienes una mejor forma de trabajar</div>
         <ul class="transform-list">
-          <li>Más claridad sobre tu operación.</li>
-          <li>Información organizada en un solo lugar.</li>
+          <li>Más tranquilidad en tu día a día.</li>
+          <li>Más tiempo para lo que realmente importa.</li>
           <li>Procesos más ágiles y ordenados.</li>
-          <li>Mayor seguridad para decidir.</li>
+          <li>Una visión más clara de tu negocio.</li>
         </ul>
       </div>
     </div>
@@ -488,9 +494,9 @@ details p{color:var(--muted);padding-top:12px;font-size:14px}
   <div class="container">
     <div class="section-kicker">Lo que realmente estás comprando</div>
     <h2 class="section-title">No estás comprando solamente un programa.</h2>
-    <p class="section-intro" style="white-space: nowrap;">
+   <p class="section-intro emotion-intro">
   Estás recuperando algo que el crecimiento de un negocio suele quitarte: tiempo para ti.
-   </p>
+</p>
     <div class="emotion-line">Tu negocio sigue creciendo.<br><span>Tu tiempo vuelve a ser tuyo.</span><br>Tu mirada puesta en lo que viene.</div>
   </div>
 </section>
