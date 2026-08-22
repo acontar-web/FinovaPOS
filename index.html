@@ -313,48 +313,66 @@ h1{
 
 .product-visual{
   width:100%;
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
+
   min-width:0;
 }
 
 .laptop-mockup{
   position:relative;
+
   width:100%;
+
   max-width:620px;
+
   margin:0 auto;
+
   line-height:0;
 }
 
 .laptop-image{
   display:block;
+
   width:100%;
+
   height:auto;
+
   position:relative;
+
   z-index:1;
 
-  filter:drop-shadow(
-    0 28px 35px rgba(8,47,26,.24)
-  );
+  filter:
+    drop-shadow(
+      0 28px 35px rgba(8,47,26,.24)
+    );
 }
 
 
-/* =========================================================
-   INTERFAZ FINOVA
-========================================================= */
+/*
+=========================================================
+INTERFAZ DE FINOVA DENTRO DE LA PANTALLA
+=========================================================
+*/
 
 .screen-content{
   position:absolute;
 
   /*
-    Posición de la interfaz dentro
-    de la pantalla de la laptop
+    POSICIÓN DE LA INTERFAZ
   */
 
   top:9.5%;
   left:14.5%;
+
+  /*
+    TAMAÑO DE LA INTERFAZ
+  */
 
   width:71%;
 
@@ -362,21 +380,7 @@ h1{
 
   overflow:hidden;
 
-  /*
-    SIN FONDO BLANCO
-  */
-
-  background:transparent;
-
-  border:0;
-
   border-radius:4px;
-
-  padding:0;
-
-  margin:0;
-
-  line-height:0;
 
   pointer-events:none;
 }
@@ -385,29 +389,12 @@ h1{
   display:block;
 
   width:100%;
+
   height:auto;
 
-  /*
-    IMPORTANTE:
-    contain evita que la interfaz
-    sea recortada.
-  */
+  aspect-ratio:16 / 10;
 
-  object-fit:contain;
-
-  /*
-    NO forzamos aspect-ratio.
-    La imagen conserva su proporción
-    original.
-  */
-
-  background:transparent;
-
-  border:0;
-
-  padding:0;
-
-  margin:0;
+  object-fit:cover;
 }
 
 
@@ -1219,77 +1206,72 @@ details p{
   }
 
 
- /* =========================================================
-   LAPTOP EN MÓVIL
-========================================================= */
+  /* LAPTOP */
 
-.product-visual{
-  width:100%;
-  max-width:100%;
-  overflow:visible;
-}
+  .product-visual{
+    width:100%;
 
-.laptop-mockup{
-  width:100%;
-  max-width:100%;
-}
+    max-width:100%;
 
-.laptop-image{
-  width:100%;
-  max-width:100%;
-  height:auto;
-  object-fit:contain;
-  margin:0 auto;
-}
+    overflow:visible;
+  }
 
+  .laptop-mockup{
+    width:100%;
 
-/*
-   INTERFAZ EN MÓVIL
-*/
+    max-width:100%;
+  }
 
-.screen-content{
-  top:9.5%;
-  left:14.5%;
-  width:71%;
+  .laptop-image{
+    width:100%;
 
-  background:transparent;
+    max-width:100%;
 
-  padding:0;
-  margin:0;
+    height:auto;
 
-  border:0;
-  border-radius:3px;
+    object-fit:contain;
 
-  overflow:hidden;
-}
+    margin:0 auto;
+  }
 
-.screen-content img{
-  width:100%;
-  height:auto;
+  /*
+    La interfaz conserva su posición
+    proporcionalmente en móvil.
+  */
 
-  object-fit:contain;
+  .screen-content{
+    top:9.5%;
 
-  background:transparent;
-}
+    left:14.5%;
 
+    width:71%;
 
-/*
-   TEXTO
-*/
+    border-radius:3px;
+  }
 
-.visual-caption{
-  max-width:100%;
+  .screen-content img{
+    width:100%;
 
-  padding-top:12px;
+    height:auto;
 
-  font-size:10px;
+    aspect-ratio:16 / 10;
 
-  gap:12px;
-}
+    object-fit:cover;
+  }
 
-.visual-caption span:last-child{
-  text-align:right;
-}
+  .visual-caption{
+    max-width:100%;
+
+    padding-top:12px;
+
+    font-size:10px;
+
+    gap:12px;
+  }
+
+  .visual-caption span:last-child{
+    text-align:right;
+  }
 
 
   /* SECCIONES */
